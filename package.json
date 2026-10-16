@@ -1,0 +1,15 @@
+{
+  "name": "randykleckner-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Randy Kleckner's professional portfolio",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "check": "node --check script.js",
+    "build": "node scripts/build.mjs",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.1"
+  }
+}
