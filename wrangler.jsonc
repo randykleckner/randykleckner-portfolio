@@ -2,9 +2,18 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "randykleckner-portfolio",
   "compatibility_date": "2026-10-16",
-  "build": { "command": "npm run build" },
-  "assets": { "directory": "./dist" },
+  "build": {
+    "command": "npm run build"
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
   "r2_buckets": [
-    { "binding": "job-mail-inbound", "bucket_name": "randy-job-mail" }
-  ]
+    {
+      "binding": "job-mail-inbound",
+      "bucket_name": "randy-job-mail"
+    }
+  ],
+  "main": "worker/index.mjs"
 }

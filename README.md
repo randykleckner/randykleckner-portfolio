@@ -20,3 +20,7 @@ Content is based on the supplied August 2026 résumé, including Apple roles, pr
 ## GitHub
 
 The local repository's `origin` is https://github.com/randykleckner/randykleckner-portfolio.git. Cloudflare Workers Builds is connected to `main`, with deploy command `npx wrangler deploy`. `wrangler.jsonc` runs the static build and serves `dist/`. The existing R2 binding is preserved; the portfolio does not expose the bucket or provide email access.
+
+## Incoming job email
+
+`worker/index.mjs` accepts only `randy@randykleckner.com` and stores bounded raw MIME messages in the existing `randy-job-mail` R2 bucket under `inbox/<sha256>.eml`. The `job-mail-inbound` binding name is retained exactly from the dashboard and accessed with bracket notation. HTTP requests serve static portfolio assets only; no HTTP route lists or returns email objects. A Cloudflare Email Routing address rule must point to this Worker before delivery works. R2 must remain private. Run `npm test` for storage, size, recipient, and HTTP isolation checks.
