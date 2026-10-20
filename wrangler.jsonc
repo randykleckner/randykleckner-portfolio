@@ -15,5 +15,11 @@
       "bucket_name": "randy-job-mail"
     }
   ],
-  "main": "worker/index.mjs"
+  "main": "worker/index.mjs",
+  "routes": [
+    {
+      "pattern": "randykleckner.com",
+      "custom_domain": true
+    }
+  ]
 }
